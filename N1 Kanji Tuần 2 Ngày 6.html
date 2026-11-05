@@ -1,0 +1,408 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>N1 Kanji Tuần 2 Ngày 6</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: one centered study column; card / quiz / list views share header and scope filter */
+:root{
+  --paper:#EEF1EC; --surface:#FBFCF9; --ink:#1F3A5F; --ink-soft:#5A6B80;
+  --line:#D3DACF; --known:#4F7A35; --known-bg:#E3EDDA; --learn:#8E3B5E; --learn-bg:#F3E2EA;
+  --card-back:#1F3A5F; --card-back-ink:#F4F7FB; --accent:#A8761A; --warn:#B4492B; --warn-bg:#F7E4DC;
+  --jp:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+  --vn:"Noto Sans",Roboto,"Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141A22; --surface:#1C2430; --ink:#DCE5F0; --ink-soft:#93A3B6;
+    --line:#2C3746; --known:#9CC77E; --known-bg:#24331C; --learn:#E39BBB; --learn-bg:#3A2230;
+    --card-back:#C9D8EA; --card-back-ink:#14202E; --accent:#E2B860; --warn:#F09A7C; --warn-bg:#3B241C; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141A22; --surface:#1C2430; --ink:#DCE5F0; --ink-soft:#93A3B6;
+  --line:#2C3746; --known:#9CC77E; --known-bg:#24331C; --learn:#E39BBB; --learn-bg:#3A2230;
+  --card-back:#C9D8EA; --card-back-ink:#14202E; --accent:#E2B860; --warn:#F09A7C; --warn-bg:#3B241C; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--vn);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:15px}
+.wrap{max-width:720px;margin:0 auto;padding-block:28px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.eyebrow{font-family:var(--jp);font-size:.8rem;font-weight:500;letter-spacing:.04em;color:var(--accent);margin:0 0 4px}
+h1{font-family:var(--jp);font-weight:700;font-size:clamp(1.4rem,4vw,1.9rem);margin:0;text-wrap:balance}
+h1 small{display:block;font-family:var(--vn);font-weight:500;font-size:.88rem;color:var(--ink-soft);margin-top:2px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--learn);outline-offset:2px}
+
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:none;padding:7px 14px;border-radius:999px;font-weight:500;font-size:.9rem;color:var(--ink-soft)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-size:.9rem;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--learn-bg);border-color:var(--learn);color:var(--learn)}
+select.chip{color:var(--ink);font-family:var(--vn);max-width:100%}
+
+/* Flashcard */
+.progress{display:flex;justify-content:space-between;font-size:.86rem;color:var(--ink-soft);margin:4px 2px 8px;font-variant-numeric:tabular-nums}
+.track{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin-bottom:16px}
+.track i{display:block;height:100%;background:var(--ink);transition:width .25s}
+.scene{perspective:1200px}
+.card{position:relative;width:100%;max-width:100%;aspect-ratio:16/10;min-height:270px;border:0;padding:0;background:none;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.3,.7,.3,1)}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:40px 20px;backface-visibility:hidden;-webkit-backface-visibility:hidden;text-align:center}
+.front{background:var(--surface);border:1px solid var(--line);
+  background-image:linear-gradient(var(--line) 1px,transparent 1px);background-size:100% 44px;background-position:0 22px}
+.back{background:var(--card-back);color:var(--card-back-ink);transform:rotateY(180deg)}
+.big{font-size:clamp(2.2rem,9vw,3.6rem);line-height:1.25;padding:0 10px;word-break:break-word}
+.front .big{background:var(--surface)}
+.front .big.vn{font-size:clamp(1.3rem,5vw,2rem)}
+.jp{font-family:var(--jp);font-weight:500}
+.vn{font-family:var(--vn);font-weight:600}
+.b-read{font-family:var(--jp);font-weight:500;font-size:clamp(1.5rem,6vw,2.3rem);line-height:1.25}
+.b-word{font-family:var(--jp);font-weight:500;font-size:clamp(2rem,8vw,3rem);line-height:1.25}
+.b-hv{font-size:.88rem;font-weight:700;letter-spacing:.08em;opacity:.78}
+.b-vn{font-size:clamp(1.05rem,3.6vw,1.3rem);font-weight:600;max-width:34ch}
+.face .sub{position:absolute;bottom:12px;left:16px;right:16px;font-size:.8rem;opacity:.7}
+.focus{position:absolute;top:14px;left:16px;font-size:.82rem;font-weight:500;color:var(--ink-soft);font-family:var(--jp)}
+.back .focus{color:var(--card-back-ink);opacity:.72}
+.tags{position:absolute;top:12px;right:14px;display:flex;gap:6px}
+.tag{font-size:.74rem;font-weight:600;padding:3px 10px;border-radius:999px}
+.tag.k{background:var(--known-bg);color:var(--known)}
+.tag.ex{background:var(--warn-bg);color:var(--warn)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px}
+.round{width:52px;height:52px;flex:none;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:1.3rem;display:grid;place-items:center}
+.marks{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.mk{border-radius:12px;padding:11px 16px;font-weight:600;font-size:.9rem;border:1.5px solid}
+.mk.learn{border-color:var(--learn);color:var(--learn);background:var(--learn-bg)}
+.mk.known{border-color:var(--known);color:var(--known);background:var(--known-bg)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:18px}
+.link{border:0;background:none;color:var(--ink-soft);font-size:.86rem;text-decoration:underline;text-underline-offset:3px;padding:6px 8px}
+.link.danger{color:var(--learn);font-weight:600}
+.hint{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:6px}
+
+/* Quiz */
+.q-type{margin-bottom:12px}
+.q-prompt{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px 20px;text-align:center;margin-bottom:14px}
+.q-ask{font-size:.84rem;color:var(--ink-soft);margin:0 0 6px}
+.q-prompt .big{font-size:clamp(2rem,8vw,3rem)}
+.q-prompt .big.vn{font-size:clamp(1.25rem,5vw,1.8rem)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:480px){.opts{grid-template-columns:1fr}}
+.opt{border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:14px;text-align:left;font-size:1.05rem;min-height:56px;display:flex;gap:10px;align-items:center;min-width:0}
+.opt span{min-width:0;word-break:break-word}
+.opt kbd{font-family:var(--vn);font-size:.74rem;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--ink-soft)}
+.opt.right{border-color:var(--known);background:var(--known-bg);color:var(--known)}
+.opt.wrong{border-color:var(--learn);background:var(--learn-bg);color:var(--learn)}
+.q-explain{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px dashed var(--line);font-size:.92rem}
+.q-explain .jp{font-size:1.1rem}
+.q-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:.9rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.primary{background:var(--ink);color:var(--paper);border:0;border-radius:12px;padding:11px 20px;font-weight:600}
+
+/* List */
+.search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;margin-bottom:12px}
+.day{font-family:var(--jp);font-size:1.05rem;font-weight:700;margin:18px 4px 8px}
+.grp{margin-bottom:14px}
+.grp h2{font-family:var(--jp);font-size:.95rem;margin:0 0 6px 4px;color:var(--ink-soft);font-weight:500}
+.grp h2 b{color:var(--accent);font-size:1.25rem;font-weight:700;margin-right:6px}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.6fr) auto;gap:12px;align-items:center;padding:10px 16px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row .w{display:flex;flex-direction:column;min-width:0}
+.row .w .jp{font-size:1.2rem;line-height:1.35}
+.row .w .rd{font-family:var(--jp);font-size:.85rem;color:var(--ink-soft)}
+.row .m{min-width:0}
+.row .m .hv{font-size:.74rem;font-weight:700;letter-spacing:.06em;color:var(--accent)}
+.row .m .vn{font-weight:400;display:block}
+.row .m .tag{margin-left:6px;padding:1px 8px;font-size:.7rem}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.dot.k{background:var(--known)}
+.empty{padding:24px;text-align:center;color:var(--ink-soft)}
+@media (prefers-reduced-motion:reduce){.card,.track i{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <p class="eyebrow">総まとめ N1 漢字 · 第2週 6日目 · 由・油・抽</p>
+      <h1>同じ部分・同じ音読み②<small>Kanji cùng bộ phận, cùng âm On · <span id="total"></span> từ</small></h1>
+    </div>
+    <div class="seg" role="group" aria-label="Chế độ">
+      <button data-mode="cards" aria-pressed="true">Thẻ lật</button>
+      <button data-mode="quiz" aria-pressed="false">Trắc nghiệm</button>
+      <button data-mode="list" aria-pressed="false">Danh sách</button>
+    </div>
+  </header>
+
+  <div class="bar">
+    <select class="chip" id="scope" aria-label="Phạm vi học"></select>
+    <button class="chip" id="onlyLearn" aria-pressed="false">Chỉ từ chưa thuộc</button>
+  </div>
+
+  <!-- Cards -->
+  <section id="v-cards">
+    <div class="bar">
+      <div class="seg" role="group" aria-label="Mặt trước của thẻ">
+        <button data-dir="jv" aria-pressed="true">Kanji → Đọc, nghĩa</button>
+        <button data-dir="vj" aria-pressed="false">Nghĩa → Kanji</button>
+      </div>
+    </div>
+    <div class="progress"><span id="pos"></span><span id="knownCount"></span></div>
+    <div class="track"><i id="bar"></i></div>
+    <div class="scene">
+      <button class="card" id="card" aria-label="Bấm để lật thẻ">
+        <div class="face front"><span class="focus" id="focusF"></span><span class="tags" id="tagsF"></span><span class="big" id="frontTxt"></span><span class="sub">Bấm để lật</span></div>
+        <div class="face back"><span class="focus" id="focusB"></span><span id="backBox" style="display:flex;flex-direction:column;align-items:center;gap:6px"></span></div>
+      </button>
+    </div>
+    <div class="nav">
+      <button class="round" id="prev" aria-label="Thẻ trước">‹</button>
+      <div class="marks">
+        <button class="mk learn" id="mLearn">Chưa thuộc</button>
+        <button class="mk known" id="mKnown">Đã thuộc</button>
+      </div>
+      <button class="round" id="next" aria-label="Thẻ sau">›</button>
+    </div>
+    <div class="tools">
+      <button class="link" id="shuffle">Xáo trộn</button>
+      <button class="link" id="order">Về thứ tự gốc</button>
+      <button class="link" id="reset">Xóa đánh dấu</button>
+      <span id="resetConfirm" hidden><button class="link danger" id="resetYes">Xóa hết</button><button class="link" id="resetNo">Hủy</button></span>
+    </div>
+    <p class="hint">Phím tắt: Space lật thẻ · ← → chuyển thẻ · 1 chưa thuộc · 2 đã thuộc<br>Nhãn <b>Ngoại lệ</b> = từ có cách đọc đặc biệt (sách đánh dấu ❗)</p>
+  </section>
+
+  <!-- Quiz -->
+  <section id="v-quiz" hidden>
+    <div class="seg q-type" role="group" aria-label="Dạng câu hỏi">
+      <button data-qt="read" aria-pressed="true">Chọn cách đọc</button>
+      <button data-qt="mean" aria-pressed="false">Chọn nghĩa</button>
+      <button data-qt="kanji" aria-pressed="false">Chọn Kanji</button>
+    </div>
+    <div class="q-prompt"><p class="q-ask" id="qAsk"></p><span class="big" id="qTxt"></span></div>
+    <div class="opts" id="opts"></div>
+    <div class="q-explain" id="qExplain" hidden></div>
+    <div class="q-foot"><span id="score">Đúng 0 / 0</span><button class="primary" id="qNext" hidden>Câu tiếp</button></div>
+  </section>
+
+  <!-- List -->
+  <section id="v-list" hidden>
+    <input class="search" id="search" type="search" placeholder="Tìm theo Kanji, cách đọc, Hán Việt hoặc nghĩa">
+    <div id="list"></div>
+  </section>
+</div>
+
+<script>
+/* Ngày | Nhóm | Kanji trọng tâm | Âm On | Từ | Cách đọc | Hán Việt | Nghĩa | Ngoại lệ (1 = sách đánh dấu ❗) */
+const RAW = `6|白|白|ハク・ビャク△|告白|こくはく|CÁO BẠCH|Thú nhận, tỏ tình|0
+6|白|白|ハク・ビャク△|白夜|びゃくや|BẠCH DẠ|Đêm trắng (ở vùng cực)|1
+6|白|白|ハク・ビャク△|白状する|はくじょうする|BẠCH TRẠNG|Thú nhận, khai ra|0
+6|白|拍|ハク・ヒョウ△|拍手|はくしゅ|PHÁCH THỦ|Vỗ tay|0
+6|白|拍|ハク・ヒョウ△|拍子|ひょうし|PHÁCH TỬ|Nhịp, phách; nhân lúc, đúng lúc|1
+6|白|拍|ハク・ヒョウ△|1拍・2拍…|いっぱく・にはく…|PHÁCH|1 phách, 2 phách (nhịp)|0
+6|白|泊|ハク|宿泊|しゅくはく|TÚC BẠC|Trọ lại, nghỉ lại|0
+6|白|泊|ハク|1泊・2泊…|いっぱく・にはく…|BẠC|1 đêm, 2 đêm (lưu trú)|0
+6|白|迫|ハク|迫害|はくがい|BÁCH HẠI|Sự ngược đãi, bức hại|0
+6|白|迫|ハク|圧迫|あっぱく|ÁP BÁCH|Sự áp bức, áp lực|0
+6|白|舶|ハク|船舶|せんぱく|THUYỀN BẠC|Tàu thuyền|0
+6|由|由|ユ△・ユウ・ユイ△|経由|けいゆ|KINH DO|Thông qua, quá cảnh|1
+6|由|由|ユ△・ユウ・ユイ△|由来|ゆらい|DO LAI|Nguồn gốc, khởi nguồn|1
+6|由|由|ユ△・ユウ・ユイ△|自由|じゆう|TỰ DO|Tự do|0
+6|由|由|ユ△・ユウ・ユイ△|由緒|ゆいしょ|DO TỰ|Lai lịch, dòng dõi|1
+6|由|油|ユ|原油|げんゆ|NGUYÊN DU|Dầu thô|0
+6|由|抽|チュウ|抽象|ちゅうしょう|TRỪU TƯỢNG|Sự trừu tượng|0
+6|由|抽|チュウ|抽選|ちゅうせん|TRỪU TUYỂN|Rút thăm, bốc thăm|0
+6|申|神|シン・ジン△|精神|せいしん|TINH THẦN|Tinh thần|0
+6|申|神|シン・ジン△|神社|じんじゃ|THẦN XÃ|Đền thờ (Thần đạo)|1
+6|申|神|シン・ジン△|神宮|じんぐう|THẦN CUNG|Đền thờ lớn (Thần đạo)|1
+6|申|申|シン|申請|しんせい|THÂN THỈNH|Nộp đơn xin (cấp phép)|0
+6|申|申|シン|申告|しんこく|THÂN CÁO|Khai báo, trình báo|0
+6|申|伸|シン|伸縮|しんしゅく|THÂN SÚC|Sự co giãn|0
+6|申|伸|シン|追伸|ついしん|TRUY THÂN|Tái bút|0
+6|申|紳|シン|紳士|しんし|THÂN SĨ|Quý ông|0
+6|己|己|キ△・コ|克己心|こっきしん|KHẮC KỶ TÂM|Tinh thần tự kiềm chế bản thân|0
+6|己|己|キ△・コ|自己|じこ|TỰ KỶ|Bản thân, tự mình|0
+6|己|記|キ|記述|きじゅつ|KÝ THUẬT|Ghi chép, mô tả|0
+6|己|紀|キ|世紀|せいき|THẾ KỶ|Thế kỷ|0
+6|圣|経|ケイ・キョウ△|経費|けいひ|KINH PHÍ|Kinh phí, chi phí|0
+6|圣|経|ケイ・キョウ△|経典|きょうてん|KINH ĐIỂN|Kinh sách (tôn giáo)|1
+6|圣|経|ケイ・キョウ△|（お）経|（お）きょう|KINH|Kinh (Phật)|1
+6|圣|軽|ケイ|軽率な|けいそつな|KHINH SUẤT|Khinh suất, hấp tấp|0
+6|圣|径|ケイ|半径|はんけい|BÁN KÍNH|Bán kính|0
+6|圣|径|ケイ|直径|ちょっけい|TRỰC KÍNH|Đường kính|0
+6|分|分|フン△・ブン・ブ△|5分間|ごふんかん|NGŨ PHÂN GIAN|5 phút|0
+6|分|分|フン△・ブン・ブ△|分別|ふんべつ|PHÂN BIỆT|Sự biết điều, khả năng phán đoán|1
+6|分|分|フン△・ブン・ブ△|分析|ぶんせき|PHÂN TÍCH|Phân tích|0
+6|分|分|フン△・ブン・ブ△|五分五分|ごぶごぶ|NGŨ PHÂN NGŨ PHÂN|50/50, ngang ngửa|1
+6|分|粉|フン|粉末|ふんまつ|PHẤN MẠT|Bột|0
+6|分|粉|フン|花粉|かふん|HOA PHẤN|Phấn hoa|0
+6|分|紛|フン|紛失|ふんしつ|PHÂN THẤT|Đánh mất, thất lạc|0
+6|分|紛|フン|紛争|ふんそう|PHÂN TRANH|Tranh chấp, xung đột|0
+6|分|雰|フン|雰囲気|ふんいき|PHÂN VI KHÍ|Bầu không khí|0
+6|分|盆|ボン|（お）盆|（お）ぼん|BỒN|Cái khay|0`;
+
+const WORDS = RAW.trim().split("\n").map((l,i)=>{const [d,g,k,on,w,r,hv,vn,ex]=l.split("|").map(s=>s.trim());return {id:i,d,g,k,on,w,r,hv,vn,ex:ex==="1"};});
+const DAYS=[...new Set(WORDS.map(w=>w.d))];
+const groupsOf=d=>[...new Set(WORDS.filter(w=>w.d===d).map(w=>w.g))];
+const KEY="kyowa-n1-kanji-w2d6-v2-known";
+let known=new Set();
+try{known=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify([...known]))}catch(e){}};
+
+let mode="cards", dir="jv", qt="read", scope="all", onlyLearn=false, order=WORDS.map(w=>w.id), idx=0;
+const $=id=>document.getElementById(id);
+$("total").textContent=WORDS.length;
+(()=>{const d=DAYS[0];$("scope").innerHTML='<option value="all">Tất cả nhóm Kanji</option>'+groupsOf(d).map(g=>`<option value="g:${d}:${g}">Nhóm ${g}</option>`).join("");})();
+
+const inScope=w=>scope==="all"||(scope.startsWith("d:")&&w.d===scope.slice(2))||(scope.startsWith("g:")&&scope===`g:${w.d}:${w.g}`);
+const deck=()=>order.map(i=>WORDS[i]).filter(inScope).filter(w=>!onlyLearn||!known.has(w.id));
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;};
+
+/* Cards */
+function renderCard(){
+  const d=deck(), box=$("backBox"), tags=$("tagsF");
+  $("card").classList.remove("flipped");
+  $("knownCount").textContent=`Đã thuộc ${known.size}/${WORDS.length}`;
+  tags.innerHTML="";
+  if(!d.length){
+    $("frontTxt").className="big vn";$("frontTxt").textContent="Thuộc hết rồi!";
+    box.innerHTML="";$("focusF").textContent="";$("focusB").textContent="";
+    $("pos").textContent="0 / 0";$("bar").style.width="100%";return;
+  }
+  if(idx>=d.length) idx=d.length-1; if(idx<0) idx=0;
+  const w=d[idx];
+  const focus=`${w.k}（${w.on}）`;
+  $("focusF").textContent=dir==="jv"?focus:"";
+  $("focusB").textContent=focus;
+  if(dir==="jv"){$("frontTxt").className="big jp";$("frontTxt").textContent=w.w;}
+  else{$("frontTxt").className="big vn";$("frontTxt").textContent=w.vn;}
+  if(w.ex&&dir==="jv") tags.append(el("span","tag ex","Ngoại lệ"));
+  if(known.has(w.id)) tags.append(el("span","tag k","Đã thuộc"));
+  box.innerHTML="";
+  if(dir==="jv") box.append(el("span","b-read",w.r),el("span","b-hv",w.hv),el("span","b-vn",w.vn));
+  else box.append(el("span","b-word",w.w),el("span","b-read",w.r),el("span","b-hv",w.hv));
+  $("pos").textContent=`${idx+1} / ${d.length}`;
+  $("bar").style.width=((idx+1)/d.length*100)+"%";
+}
+const flip=()=>{if(deck().length)$("card").classList.toggle("flipped")};
+const go=s=>{const n=deck().length;if(!n)return;
+  const c=$("card"); if(c.classList.contains("flipped")){c.classList.remove("flipped");setTimeout(()=>{idx=(idx+s+n)%n;renderCard();},220);}
+  else{idx=(idx+s+n)%n;renderCard();}};
+function mark(isKnown){
+  const d=deck(); if(!d.length) return; const w=d[idx];
+  isKnown?known.add(w.id):known.delete(w.id); save();
+  if(onlyLearn && isKnown){renderCard();} else go(1);
+}
+$("card").onclick=flip; $("prev").onclick=()=>go(-1); $("next").onclick=()=>go(1);
+$("mKnown").onclick=()=>mark(true); $("mLearn").onclick=()=>mark(false);
+$("shuffle").onclick=()=>{order=shuffle(order);idx=0;renderCard();};
+$("order").onclick=()=>{order=WORDS.map(w=>w.id);idx=0;renderCard();};
+$("reset").onclick=()=>{$("reset").hidden=true;$("resetConfirm").hidden=false;};
+$("resetNo").onclick=()=>{$("reset").hidden=false;$("resetConfirm").hidden=true;};
+$("resetYes").onclick=()=>{known.clear();save();$("reset").hidden=false;$("resetConfirm").hidden=true;renderAll();};
+
+/* Quiz */
+const QT={
+  read:{ask:"Cách đọc đúng là?",p:w=>({t:w.w,c:"jp"}),a:w=>({t:w.r,c:"jp"})},
+  mean:{ask:"Nghĩa đúng là?",p:w=>({t:w.w,c:"jp"}),a:w=>({t:w.vn,c:"vn"})},
+  kanji:{ask:"Từ Kanji đúng là?",p:w=>({t:w.vn,c:"vn"}),a:w=>({t:w.w,c:"jp"})}
+};
+let qWord=null, answered=false, right=0, total=0;
+function newQuestion(){
+  const t=QT[qt];
+  const pool=deck().length?deck():WORDS.filter(inScope);
+  qWord=pool[Math.floor(Math.random()*pool.length)];
+  const correct=t.a(qWord).t;
+  const seen=new Set([correct]);
+  /* Ưu tiên đáp án nhiễu cùng nhóm Kanji (dễ nhầm), thiếu thì lấy cùng ngày, rồi ngày khác */
+  const same=WORDS.filter(w=>w.d===qWord.d&&w.g===qWord.g), day=WORDS.filter(w=>w.d===qWord.d&&w.g!==qWord.g), rest=WORDS.filter(w=>w.d!==qWord.d);
+  const cand=[...shuffle(same),...shuffle(day),...shuffle(rest)];
+  const others=[];
+  for(const w of cand){const v=t.a(w).t; if(!seen.has(v)){seen.add(v);others.push(w);} if(others.length===3)break;}
+  const opts=shuffle([qWord,...others]);
+  $("qAsk").textContent=t.ask;
+  const p=t.p(qWord); $("qTxt").className="big "+p.c; $("qTxt").textContent=p.t;
+  $("opts").innerHTML="";
+  opts.forEach((w,i)=>{
+    const b=el("button","opt"); const o=t.a(w);
+    b.dataset.ok=(w.id===qWord.id);
+    b.append(el("kbd",null,String(i+1)),el("span",o.c,o.t));
+    b.onclick=()=>pick(b); $("opts").appendChild(b);
+  });
+  answered=false; $("qNext").hidden=true; $("qExplain").hidden=true;
+}
+function pick(btn){
+  if(answered) return; answered=true; total++;
+  const ok=btn.dataset.ok==="true"; if(ok) right++;
+  [...$("opts").children].forEach(b=>{if(b.dataset.ok==="true")b.classList.add("right");});
+  if(!ok) btn.classList.add("wrong");
+  $("score").textContent=`Đúng ${right} / ${total}`;
+  const x=$("qExplain"); x.innerHTML="";
+  x.append(el("span","jp",qWord.w+"　"),el("span","jp",qWord.r),document.createElement("br"),
+    el("span",null,`${qWord.hv} · ${qWord.vn} · Kanji ${qWord.k}（${qWord.on}）${qWord.ex?" · Ngoại lệ":""}`));
+  x.hidden=false;
+  $("qNext").hidden=false; $("qNext").focus();
+}
+$("qNext").onclick=newQuestion;
+
+/* List */
+function renderList(){
+  const s=$("search").value.trim().toLowerCase();
+  const items=WORDS.filter(inScope).filter(w=>!s||[w.w,w.r,w.k,w.hv.toLowerCase(),w.vn.toLowerCase()].some(f=>f.includes(s))).filter(w=>!onlyLearn||!known.has(w.id));
+  const box=$("list"); box.innerHTML="";
+  if(!items.length){box.innerHTML='<div class="list"><div class="empty">Không có từ nào khớp. Thử từ khác nhé.</div></div>';return;}
+  DAYS.forEach(d=>{
+    const dayItems=items.filter(w=>w.d===d); if(!dayItems.length) return;
+    box.appendChild(el("p","day",`第2週 ${d}日目`));
+    groupsOf(d).forEach(g=>{
+      const its=dayItems.filter(w=>w.g===g); if(!its.length) return;
+      const sec=el("div","grp"); const h=el("h2"); h.append(el("b",null,g),document.createTextNode("Nhóm "+g));
+      const lst=el("div","list");
+      its.forEach(w=>{
+        const r=el("div","row");
+        const a=el("div","w"); a.append(el("span","jp",w.w),el("span","rd",w.r));
+        const m=el("div","m"); const hv=el("span","hv",w.hv); if(w.ex) hv.append(el("span","tag ex","Ngoại lệ"));
+        m.append(hv,el("span","vn",w.vn));
+        const dt=el("span","dot"+(known.has(w.id)?" k":"")); dt.title=known.has(w.id)?"Đã thuộc":"Chưa thuộc";
+        r.append(a,m,dt); lst.appendChild(r);
+      });
+      sec.append(h,lst); box.appendChild(sec);
+    });
+  });
+}
+$("search").oninput=renderList;
+
+/* Switches */
+function renderAll(){
+  document.querySelectorAll("[data-mode]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.mode===mode));
+  document.querySelectorAll("[data-dir]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.dir===dir));
+  document.querySelectorAll("[data-qt]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.qt===qt));
+  $("onlyLearn").setAttribute("aria-pressed",onlyLearn);
+  ["cards","quiz","list"].forEach(m=>$("v-"+m).hidden=m!==mode);
+  if(mode==="cards") renderCard(); else if(mode==="quiz") newQuestion(); else renderList();
+}
+document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{mode=b.dataset.mode;renderAll();});
+document.querySelectorAll("[data-dir]").forEach(b=>b.onclick=()=>{dir=b.dataset.dir;renderAll();});
+document.querySelectorAll("[data-qt]").forEach(b=>b.onclick=()=>{qt=b.dataset.qt;renderAll();});
+$("scope").onchange=e=>{scope=e.target.value;idx=0;renderAll();};
+$("onlyLearn").onclick=()=>{onlyLearn=!onlyLearn;idx=0;renderAll();};
+
+document.addEventListener("keydown",e=>{
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(mode==="cards"){
+    if(e.code==="Space"){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight") go(1);
+    else if(e.key==="ArrowLeft") go(-1);
+    else if(e.key==="1") mark(false);
+    else if(e.key==="2") mark(true);
+  } else if(mode==="quiz"){
+    const n=parseInt(e.key,10);
+    if(n>=1&&n<=4&&!answered){const b=$("opts").children[n-1];if(b)pick(b);}
+    else if((e.key==="Enter"||e.code==="Space")&&answered){e.preventDefault();newQuestion();}
+  }
+});
+renderAll();
+</script>
+
+</body></html>
