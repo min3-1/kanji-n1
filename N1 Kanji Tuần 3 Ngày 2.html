@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>N1 Kanji Tuần 3 Ngày 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1EC; --surface:#FBFCF9; --ink:#1F3A5F; --ink-soft:#5A6B80;
+  --line:#D3DACF; --known:#4F7A35; --known-bg:#E3EDDA; --learn:#8E3B5E; --learn-bg:#F3E2EA;
+  --card-back:#1F3A5F; --card-back-ink:#F4F7FB; --accent:#B5862A;
+  --jp:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+  --vn:"Noto Sans",Roboto,"Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141A22; --surface:#1C2430; --ink:#DCE5F0; --ink-soft:#93A3B6;
+    --line:#2C3746; --known:#9CC77E; --known-bg:#24331C; --learn:#E39BBB; --learn-bg:#3A2230;
+    --card-back:#C9D8EA; --card-back-ink:#14202E; --accent:#E2B860; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141A22; --surface:#1C2430; --ink:#DCE5F0; --ink-soft:#93A3B6;
+  --line:#2C3746; --known:#9CC77E; --known-bg:#24331C; --learn:#E39BBB; --learn-bg:#3A2230;
+  --card-back:#C9D8EA; --card-back-ink:#14202E; --accent:#E2B860; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--vn);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:15px}
+.wrap{max-width:720px;margin:0 auto;padding-block:28px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.eyebrow{font-family:var(--jp);font-size:.8rem;font-weight:500;letter-spacing:.04em;color:var(--accent);margin:0 0 4px}
+h1{font-family:var(--jp);font-weight:700;font-size:clamp(1.4rem,4vw,1.9rem);margin:0;text-wrap:balance}
+h1 small{display:block;font-family:var(--vn);font-weight:500;font-size:.88rem;color:var(--ink-soft);margin-top:2px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--learn);outline-offset:2px}
+
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:none;padding:7px 14px;border-radius:999px;font-weight:500;font-size:.9rem;color:var(--ink-soft)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-size:.9rem;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--learn-bg);border-color:var(--learn);color:var(--learn)}
+select.chip{color:var(--ink);font-family:var(--vn);max-width:100%}
+
+/* Flashcard */
+.progress{display:flex;justify-content:space-between;font-size:.86rem;color:var(--ink-soft);margin:4px 2px 8px;font-variant-numeric:tabular-nums}
+.track{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin-bottom:16px}
+.track i{display:block;height:100%;background:var(--ink);transition:width .25s}
+.scene{perspective:1200px}
+.card{position:relative;width:100%;max-width:100%;aspect-ratio:16/10;min-height:320px;border:0;padding:0;background:none;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.3,.7,.3,1)}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:40px 20px 34px;backface-visibility:hidden;-webkit-backface-visibility:hidden;text-align:center}
+.front{background:var(--surface);border:1px solid var(--line);
+  background-image:linear-gradient(var(--line) 1px,transparent 1px);background-size:100% 44px;background-position:0 22px}
+.back{background:var(--card-back);color:var(--card-back-ink);transform:rotateY(180deg)}
+.big{font-size:clamp(2.2rem,9vw,3.6rem);line-height:1.25;padding:0 10px;word-break:break-word}
+.front .big,.front .phr{background:var(--surface)}
+.front .big.vn{font-size:clamp(1.3rem,5vw,2rem);max-width:30ch}
+.phr{font-family:var(--jp);font-weight:500;font-size:clamp(1rem,3.6vw,1.25rem);padding:2px 10px;color:var(--ink-soft)}
+.phr u{text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:4px;color:var(--ink)}
+.jp{font-family:var(--jp);font-weight:500}
+.vn{font-family:var(--vn);font-weight:600}
+.b-read{font-family:var(--jp);font-weight:500;font-size:clamp(1.5rem,6vw,2.3rem);line-height:1.25}
+.b-word{font-family:var(--jp);font-weight:500;font-size:clamp(2rem,8vw,3rem);line-height:1.25}
+.b-hv{font-size:.88rem;font-weight:700;letter-spacing:.08em;opacity:.78}
+.b-vn{font-size:clamp(1.05rem,3.6vw,1.3rem);font-weight:600;max-width:32ch}
+.b-phr{font-size:.92rem;opacity:.9;max-width:40ch}
+.b-phr .jp{font-weight:500}
+.b-easy{font-size:.8rem;opacity:.75;max-width:44ch;font-family:var(--jp)}
+.b-easy b{font-weight:700;margin-right:4px}
+.face .sub{position:absolute;bottom:12px;left:16px;right:16px;font-size:.82rem;opacity:.72}
+.focus{position:absolute;top:14px;left:16px;font-size:.82rem;font-weight:500;color:var(--ink-soft);font-family:var(--jp)}
+.back .focus{color:var(--card-back-ink);opacity:.7}
+.tags{position:absolute;top:12px;right:14px;display:flex;gap:6px}
+.tag{font-size:.74rem;font-weight:600;padding:3px 10px;border-radius:999px;font-family:var(--jp)}
+.tag.k{background:var(--known-bg);color:var(--known);font-family:var(--vn)}
+.tag.dv{background:var(--learn-bg);color:var(--learn)}
+.row .m .tag{margin-left:6px;padding:1px 8px;font-size:.7rem}
+.b-note{font-size:.8rem;opacity:.8;font-family:var(--jp);max-width:44ch}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px}
+.round{width:52px;height:52px;flex:none;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:1.3rem;display:grid;place-items:center}
+.marks{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.mk{border-radius:12px;padding:11px 16px;font-weight:600;font-size:.9rem;border:1.5px solid}
+.mk.learn{border-color:var(--learn);color:var(--learn);background:var(--learn-bg)}
+.mk.known{border-color:var(--known);color:var(--known);background:var(--known-bg)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:18px}
+.link{border:0;background:none;color:var(--ink-soft);font-size:.86rem;text-decoration:underline;text-underline-offset:3px;padding:6px 8px}
+.link.danger{color:var(--learn);font-weight:600}
+.hint{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:6px}
+
+/* Quiz */
+.q-type{margin-bottom:12px}
+.q-prompt{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 20px;text-align:center;margin-bottom:14px}
+.q-ask{font-size:.84rem;color:var(--ink-soft);margin:0 0 6px}
+.q-ask .jp{font-size:1rem;color:var(--ink)}
+.q-prompt .big{font-size:clamp(1.8rem,7vw,2.6rem);display:block}
+.q-prompt .big.vn{font-size:clamp(1.3rem,5vw,1.9rem)}
+.q-prompt .big u{text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:6px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:480px){.opts{grid-template-columns:1fr}}
+.opt{border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:14px;text-align:left;font-size:1.05rem;min-height:56px;display:flex;gap:10px;align-items:center;min-width:0}
+.opt span{min-width:0;word-break:break-word}
+.opt kbd{font-family:var(--vn);font-size:.74rem;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--ink-soft)}
+.opt.right{border-color:var(--known);background:var(--known-bg);color:var(--known)}
+.opt.wrong{border-color:var(--learn);background:var(--learn-bg);color:var(--learn)}
+.q-explain{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px dashed var(--line);font-size:.92rem}
+.q-explain .jp{font-size:1.1rem}
+.q-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:.9rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.primary{background:var(--ink);color:var(--paper);border:0;border-radius:12px;padding:11px 20px;font-weight:600}
+
+/* List */
+.search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;margin-bottom:12px}
+.grp{margin-bottom:14px}
+.grp h2{font-family:var(--jp);font-size:.95rem;margin:0 0 6px 4px;color:var(--ink-soft);font-weight:500}
+.grp h2 b{color:var(--accent);font-size:1.15rem;font-weight:700;margin-right:8px;letter-spacing:.12em}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr) auto;gap:12px;align-items:center;padding:10px 16px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row .w{display:flex;flex-direction:column;min-width:0}
+.row .w .jp{font-size:1.2rem;line-height:1.35}
+.row .w .rd{font-family:var(--jp);font-size:.85rem;color:var(--ink-soft)}
+.row .m{min-width:0}
+.row .m .hv{font-size:.74rem;font-weight:700;letter-spacing:.06em;color:var(--accent)}
+.row .m .vn{font-weight:400;display:block}
+.row .m .ph{display:block;font-family:var(--jp);font-size:.85rem;color:var(--ink-soft)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.dot.k{background:var(--known)}
+.empty{padding:24px;text-align:center;color:var(--ink-soft)}
+@media (prefers-reduced-motion:reduce){.card,.track i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <p class="eyebrow">総まとめ N1 漢字 · 第3週 2日目</p>
+      <h1>平たい・平らな<small>2つ以上訓読みがあるもの② · Kanji có nhiều cách đọc Kun · <span id="total"></span> từ</small></h1>
+    </div>
+    <div class="seg" role="group" aria-label="Chế độ">
+      <button data-mode="cards" aria-pressed="true">Thẻ lật</button>
+      <button data-mode="quiz" aria-pressed="false">Trắc nghiệm</button>
+      <button data-mode="list" aria-pressed="false">Danh sách</button>
+    </div>
+  </header>
+
+  <div class="bar">
+    <select class="chip" id="grpSel" aria-label="Chọn nhóm Kanji"></select>
+    <button class="chip" id="onlyLearn" aria-pressed="false">Chỉ từ chưa thuộc</button>
+  </div>
+
+  <!-- Cards -->
+  <section id="v-cards">
+    <div class="bar">
+      <div class="seg" role="group" aria-label="Mặt trước của thẻ">
+        <button data-dir="jv" aria-pressed="true">Kanji → Đọc, nghĩa</button>
+        <button data-dir="vj" aria-pressed="false">Nghĩa → Kanji</button>
+      </div>
+    </div>
+    <div class="progress"><span id="pos"></span><span id="knownCount"></span></div>
+    <div class="track"><i id="bar"></i></div>
+    <div class="scene">
+      <button class="card" id="card" aria-label="Bấm để lật thẻ">
+        <div class="face front"><span class="focus" id="focusF"></span><span class="tags" id="tagsF"></span><span class="big" id="frontTxt"></span><span class="phr" id="frontPhr"></span><span class="sub">Bấm để lật</span></div>
+        <div class="face back"><span class="focus" id="focusB"></span><span id="backBox" style="display:flex;flex-direction:column;align-items:center;gap:6px"></span></div>
+      </button>
+    </div>
+    <div class="nav">
+      <button class="round" id="prev" aria-label="Thẻ trước">‹</button>
+      <div class="marks">
+        <button class="mk learn" id="mLearn">Chưa thuộc</button>
+        <button class="mk known" id="mKnown">Đã thuộc</button>
+      </div>
+      <button class="round" id="next" aria-label="Thẻ sau">›</button>
+    </div>
+    <div class="tools">
+      <button class="link" id="shuffle">Xáo trộn</button>
+      <button class="link" id="order">Về thứ tự gốc</button>
+      <button class="link" id="reset">Xóa đánh dấu</button>
+      <span id="resetConfirm" hidden><button class="link danger" id="resetYes">Xóa hết</button><button class="link" id="resetNo">Hủy</button></span>
+    </div>
+    <p class="hint">Phím tắt: Space lật thẻ · ← → chuyển thẻ · 1 chưa thuộc · 2 đã thuộc</p>
+  </section>
+
+  <!-- Quiz -->
+  <section id="v-quiz" hidden>
+    <div class="seg q-type" role="group" aria-label="Dạng câu hỏi">
+      <button data-qt="read" aria-pressed="true">Chọn cách đọc</button>
+      <button data-qt="mean" aria-pressed="false">Chọn nghĩa</button>
+      <button data-qt="kanji" aria-pressed="false">Chọn Kanji</button>
+    </div>
+    <div class="q-prompt"><p class="q-ask" id="qAsk"></p><span class="big" id="qTxt"></span></div>
+    <div class="opts" id="opts"></div>
+    <div class="q-explain" id="qExplain" hidden></div>
+    <div class="q-foot"><span id="score">Đúng 0 / 0</span><button class="primary" id="qNext" hidden>Câu tiếp</button></div>
+  </section>
+
+  <!-- List -->
+  <section id="v-list" hidden>
+    <input class="search" id="search" type="search" placeholder="Tìm theo Kanji, cách đọc, Hán Việt hoặc nghĩa">
+    <div id="list"></div>
+  </section>
+</div>
+
+<script>
+/* Nhóm | Kanji | Hán Việt | 既習の読み (sách: やさしい読み; trống = sách không ghi) | Từ | Cách đọc | Nghĩa | Cụm (sách) | Nghĩa cụm | Cách đọc nhiễu | Nhãn (派生語 = sách đánh dấu ⊃) | Ghi chú cách đọc khác */
+const RAW = `1|平|BÌNH||平たい|ひらたい|dẹt, bẹt|平たい入れ物|hộp đựng dẹt|ひらだい,へいたい,たいらい||
+1|平|BÌNH||平ら|たいら|bằng phẳng|平らな場所|nơi bằng phẳng|ひらら,へいら,ひら||
+1|訪|PHỎNG||訪れる|おとずれる|đến thăm (nơi chốn); (mùa, thời khắc) đến|日本を訪れる|đến thăm Nhật Bản|たずれる,ほうれる,おどずれる||
+1|訪|PHỎNG||訪ねる|たずねる|tìm đến thăm (người, địa điểm)|史跡を訪ねる|đến thăm di tích lịch sử|おとねる,ほうねる,たづねる||
+1|負|PHỤ|負ける（まける）|負かす|まかす|đánh bại, làm cho (đối phương) thua|言い負かす|cãi thắng (đối phương)|おかす,ふかす,まけかす||
+1|負|PHỤ|負ける（まける）|負う|おう|gánh vác, chịu (trách nhiệm)|責任を負う|chịu trách nhiệm|まう,ふう,になう||
+1|老|LÃO||老いる|おいる|về già (theo tuổi tác)|年老いた両親|cha mẹ già|ふいる,ろういる,おける||
+1|老|LÃO||老ける|ふける|trông già đi (vẻ ngoài)|老けて見える|trông già hơn tuổi|おける,ろうける,ふるける||
+2|交|GIAO|交ざる（まざる）・交じる（まじる）・交ぜる（まぜる）|交わる|まじわる|giao du, kết giao|異文化の人と交わる|giao lưu với người thuộc nền văn hóa khác|かわる,まざわる,こうわる||
+2|交|GIAO|交ざる（まざる）・交じる（まじる）・交ぜる（まぜる）|交える|まじえる|đan xen, pha vào; cùng trao đổi (ý kiến)|意見を交える|trao đổi ý kiến|まぜえる,かわえる,こうえる||
+2|交|GIAO|交ざる（まざる）・交じる（まじる）・交ぜる（まぜる）|交わす|かわす|trao qua lại; ký kết (hợp đồng)|契約を交わす|ký kết hợp đồng|まじわす,まざす,こうす||
+2|厳|NGHIÊM||厳しい|きびしい|nghiêm khắc; khắc nghiệt|厳しい寒さ|cái lạnh khắc nghiệt|けわしい,げんしい,おごしい||
+2|厳|NGHIÊM||厳か|おごそか|trang nghiêm|式が厳かに執り行われる|buổi lễ được cử hành trang nghiêm|きびそか,げんか,おごか||
+2|染|NHIỄM|染める（そめる）|染みる|しみる|thấm, ngấm; làm cay (mắt)|煙が目に染みる|khói làm cay mắt|そみる,せんみる,にじみる||
+2|染|NHIỄM|染める（そめる）|染まる|そまる|nhuốm màu, được nhuộm|色が染まる|màu thấm vào|しまる,せんまる,そめまる||
+3|潜|TIỀM||潜る|もぐる|lặn, chui xuống (nước)|水に潜る|lặn xuống nước|ひそる,せんる,もくる||潜る は「くぐる」とも読む（門を潜る：chui qua cổng）
+3|潜|TIỀM||潜む|ひそむ|ẩn nấp; tiềm ẩn|物陰に潜む|nấp ở chỗ khuất|もぐむ,せんむ,ひすむ||
+3|焦|TIÊU|焦がす（こがす）|焦げる|こげる|cháy, cháy khét|鍋が焦げる|nồi bị cháy|あせげる,しょうげる,こがげる||
+3|焦|TIÊU|焦がす（こがす）|焦る|あせる|sốt ruột, nóng vội|気持ちが焦る|trong lòng sốt ruột|こがる,あぜる,しょうる||
+3|弾|ĐẠN · ĐÀN||弾く|ひく|chơi (đàn)|ギターを弾く|chơi guitar|たまく,だんく,はずく||弾く は「はじく」とも読む（指で弾く：búng ngón tay）
+3|弾|ĐẠN · ĐÀN||弾む|はずむ|nảy; rộn ràng, sôi nổi|声が弾む|giọng nói rộn ràng|はじむ,だんむ,たまむ||
+3|弾|ĐẠN · ĐÀN||弾|たま|viên đạn|ピストルの弾|đạn súng lục|はず,ひき,だま||
+3|滑|HOẠT||滑る|すべる|trượt|氷の上を滑る|trượt trên băng|なめる,かつる,すまる||
+3|滑|HOẠT||滑らか|なめらか|nhẵn mịn, trơn tru; trôi chảy|滑らかな表面|bề mặt nhẵn mịn|かつらか,なだらか,なめやか||
+4|覆|PHÚC||覆う|おおう|che, phủ|両手で顔を覆う|lấy hai tay che mặt|ふくう,くつう,おうう||
+4|覆|PHÚC||覆す|くつがえす|lật đổ, đảo ngược hoàn toàn|現状を覆す|đảo ngược hiện trạng|くつかえす,おおがえす,ふくがえす||
+4|盛|THỊNH||盛ん|さかん|thịnh hành, sôi nổi|盛んなスポーツ|môn thể thao thịnh hành|もりん,さかえん,せいかん||
+4|盛|THỊNH||盛り|さかり|thời kỳ cao điểm, đỉnh điểm|暑い盛り|lúc nóng nhất (giữa hè)|さがり,せいり,さかえり||
+4|盛|THỊNH||盛る|もる|bày, xới (đồ ăn) ra đĩa|器に料理を盛る／盛り上がる|bày món ăn ra đĩa ／ sôi nổi lên, dâng lên|もうる,せいる,もえる||
+4|盛|THỊNH||目盛り|めもり|vạch chia (thước, dụng cụ đo)|||めさかり,もくもり,めせい|派生語|
+4|盛|THỊNH||大盛|おおもり|phần ăn cỡ lớn|||たいもり,おおさかり,だいせい|派生語|
+4|怠|ĐÃI||怠ける|なまける|lười biếng (không chịu làm)|仕事を怠ける|lười làm việc|おこける,たいける,なめける||
+4|怠|ĐÃI||怠け者|なまけもの|kẻ lười biếng|||おこたりもの,たいけしゃ,なまけしゃ|派生語|
+4|怠|ĐÃI||怠る|おこたる|lơ là, sao nhãng (việc cần làm)|健康管理を怠る／注意を怠る|lơ là việc chăm sóc sức khỏe ／ lơ là, thiếu chú ý|なまる,たいる,おこる||
+4|跳|KHIÊU||跳ぶ|とぶ|nhảy, bật nhảy|幅跳び|nhảy xa|はねぶ,ちょうぶ,おどぶ||
+4|跳|KHIÊU||跳ねる|はねる|nhảy tưng tưng; bắn tóe|ウサギが跳ねる|con thỏ nhảy|とねる,ちょうねる,おどねる||
+4|跳|KHIÊU||棒高跳び|ぼうたかとび|nhảy sào|||ぼうこうとび,ぼうたかはね,ぼうだかとび|派生語|`;
+
+const WORDS = RAW.trim().split("\n").map((l,i)=>{
+  const [g,k,hv,easy,w,r,vn,ph,phvn,dis,tag,note]=l.split("|").map(s=>(s||"").trim());
+  return {id:i,g,k,hv,easy,w,r,vn,ph,phvn,dis:dis.split(","),tag,note};
+});
+const GROUPS=[...new Set(WORDS.map(w=>w.g))];
+const GROUP_KANJI=Object.fromEntries(GROUPS.map(g=>[g,[...new Set(WORDS.filter(w=>w.g===g).map(w=>w.k))].join(" ")]));
+const KEY="kyowa-n1-kanji-w3d2-known";
+let known=new Set();
+try{known=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify([...known]))}catch(e){}};
+
+let mode="cards", dir="jv", qt="read", grp="all", onlyLearn=false, order=WORDS.map(w=>w.id), idx=0;
+const $=id=>document.getElementById(id);
+$("total").textContent=WORDS.length;
+$("grpSel").innerHTML='<option value="all">Tất cả nhóm</option>'+GROUPS.map(g=>`<option value="${g}">Nhóm ${g} · ${GROUP_KANJI[g]}</option>`).join("");
+
+const inScope=w=>(grp==="all"||w.g===grp);
+const deck=()=>order.map(i=>WORDS[i]).filter(inScope).filter(w=>!onlyLearn||!known.has(w.id));
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;};
+/* Gạch chân chữ Kanji trọng tâm + okurigana trong cụm (vd: 名を<u>汚す</u>) */
+function phraseNode(w,cls){
+  const s=el("span",cls); if(!w.ph){s.textContent=w.w;return s;} const re=new RegExp(w.k+"[ぁ-ん]*");
+  w.ph.split("／").forEach((part,i)=>{
+    if(i) s.append(document.createTextNode("／"));
+    const m=part.match(re);
+    if(!m){s.append(document.createTextNode(part));return;}
+    s.append(document.createTextNode(part.slice(0,m.index)),el("u",null,m[0]),document.createTextNode(part.slice(m.index+m[0].length)));
+  });
+  return s;
+}
+
+/* Cards */
+function renderCard(){
+  const d=deck(), card=$("card"), box=$("backBox");
+  card.classList.remove("flipped");
+  $("knownCount").textContent=`Đã thuộc ${known.size}/${WORDS.length}`;
+  if(!d.length){
+    $("frontTxt").className="big vn";$("frontTxt").textContent="Thuộc hết rồi!";$("frontPhr").textContent="";
+    box.innerHTML="";$("focusF").textContent="";$("focusB").textContent="";
+    $("pos").textContent="0 / 0";$("bar").style.width="100%";$("tagsF").innerHTML="";return;
+  }
+  if(idx>=d.length) idx=d.length-1; if(idx<0) idx=0;
+  const w=d[idx];
+  const focus=`${w.k} · ${w.hv}`;
+  $("focusF").textContent=dir==="jv"?focus:"";
+  $("focusB").textContent=focus;
+  const fp=$("frontPhr"); fp.innerHTML="";
+  if(dir==="jv"){$("frontTxt").className="big jp";$("frontTxt").textContent=w.w;if(w.ph) fp.append(phraseNode(w));}
+  else{$("frontTxt").className="big vn";$("frontTxt").textContent=w.vn;}
+  box.innerHTML="";
+  const extra=[];
+  if(w.ph){const phr=el("span","b-phr"); phr.append(el("span","jp",w.ph),document.createTextNode(" — "+w.phvn)); extra.push(phr);}
+  if(w.easy){const easy=el("span","b-easy"); easy.append(el("b",null,"既習の読み"),document.createTextNode(w.easy)); extra.push(easy);}
+  if(w.note) extra.push(el("span","b-note","※ "+w.note));
+  if(dir==="jv"){box.append(el("span","b-read",w.r),el("span","b-hv",w.hv),el("span","b-vn",w.vn),...extra);}
+  else{box.append(el("span","b-word",w.w),el("span","b-read",w.r),el("span","b-hv",w.hv),...extra);}
+  const tg=$("tagsF"); tg.innerHTML=""; if(w.tag&&dir==="jv") tg.append(el("span","tag dv",w.tag)); if(known.has(w.id)) tg.append(el("span","tag k","Đã thuộc"));
+  $("pos").textContent=`${idx+1} / ${d.length}`;
+  $("bar").style.width=((idx+1)/d.length*100)+"%";
+}
+const flip=()=>{if(deck().length)$("card").classList.toggle("flipped")};
+const go=s=>{const n=deck().length;if(!n)return;
+  const c=$("card"); if(c.classList.contains("flipped")){c.classList.remove("flipped");setTimeout(()=>{idx=(idx+s+n)%n;renderCard();},220);}
+  else{idx=(idx+s+n)%n;renderCard();}};
+function mark(isKnown){
+  const d=deck(); if(!d.length) return; const w=d[idx];
+  isKnown?known.add(w.id):known.delete(w.id); save();
+  if(onlyLearn && isKnown){renderCard();} else go(1);
+}
+$("card").onclick=flip; $("prev").onclick=()=>go(-1); $("next").onclick=()=>go(1);
+$("mKnown").onclick=()=>mark(true); $("mLearn").onclick=()=>mark(false);
+$("shuffle").onclick=()=>{order=shuffle(order);idx=0;renderCard();};
+$("order").onclick=()=>{order=WORDS.map(w=>w.id);idx=0;renderCard();};
+$("reset").onclick=()=>{$("reset").hidden=true;$("resetConfirm").hidden=false;};
+$("resetNo").onclick=()=>{$("reset").hidden=false;$("resetConfirm").hidden=true;};
+$("resetYes").onclick=()=>{known.clear();save();$("reset").hidden=false;$("resetConfirm").hidden=true;renderAll();};
+
+/* Quiz
+   - Chọn cách đọc: đề là cụm sách (gạch chân từ), nhiễu = cách đọc dễ nhầm soạn riêng cho từng từ
+   - Chọn nghĩa / Chọn Kanji: nhiễu ưu tiên cùng nhóm */
+const QT={
+  read:{ask:w=>w.ph?["Cách đọc của「",w.w,"」trong cụm này là?"]:["Cách đọc đúng là?"],p:w=>({node:phraseNode(w),c:"jp"}),a:w=>({t:w.r,c:"jp"})},
+  mean:{ask:w=>w.ph?["Nghĩa của「",w.w,"」trong cụm này là?"]:["Nghĩa đúng là?"],p:w=>({node:phraseNode(w),c:"jp"}),a:w=>({t:w.vn,c:"vn"})},
+  kanji:{ask:()=>["Từ Kanji đúng là?"],p:w=>({t:w.vn,c:"vn"}),a:w=>({t:w.w,c:"jp"})}
+};
+let qWord=null, answered=false, right=0, total=0;
+function newQuestion(){
+  const t=QT[qt];
+  const pool=deck().length?deck():WORDS.filter(inScope);
+  qWord=pool[Math.floor(Math.random()*pool.length)];
+  const correct=t.a(qWord).t;
+  let opts;
+  if(qt==="read"){
+    opts=shuffle([{ok:true,t:correct},...qWord.dis.filter(x=>x!==correct).slice(0,3).map(x=>({ok:false,t:x}))]).map(o=>({...o,c:"jp"}));
+  }else{
+    const seen=new Set([correct]);
+    const cand=[...shuffle(WORDS.filter(w=>w.g===qWord.g&&w.id!==qWord.id)),...shuffle(WORDS.filter(w=>w.g!==qWord.g))];
+    const others=[];
+    for(const w of cand){const v=t.a(w).t; if(!seen.has(v)){seen.add(v);others.push({ok:false,t:v,c:t.a(w).c});} if(others.length===3)break;}
+    opts=shuffle([{ok:true,t:correct,c:t.a(qWord).c},...others]);
+  }
+  const ask=$("qAsk"); ask.innerHTML="";
+  const parts=t.ask(qWord); parts.forEach((p,i)=>ask.append(i===1?el("span","jp",p):document.createTextNode(p)));
+  const p=t.p(qWord), q=$("qTxt"); q.className="big "+p.c; q.innerHTML="";
+  if(p.node){p.node.className="";q.append(p.node);} else q.textContent=p.t;
+  $("opts").innerHTML="";
+  opts.forEach((o,i)=>{
+    const b=el("button","opt"); b.dataset.ok=o.ok;
+    b.append(el("kbd",null,String(i+1)),el("span",o.c,o.t));
+    b.onclick=()=>pick(b); $("opts").appendChild(b);
+  });
+  answered=false; $("qNext").hidden=true; $("qExplain").hidden=true;
+}
+function pick(btn){
+  if(answered) return; answered=true; total++;
+  const ok=btn.dataset.ok==="true"; if(ok) right++;
+  [...$("opts").children].forEach(b=>{if(b.dataset.ok==="true")b.classList.add("right");});
+  if(!ok) btn.classList.add("wrong");
+  $("score").textContent=`Đúng ${right} / ${total}`;
+  const x=$("qExplain"); x.innerHTML="";
+  x.append(el("span","jp",qWord.w+"　"),el("span","jp",qWord.r),document.createElement("br"),
+    el("span",null,`${qWord.hv} · ${qWord.vn}${qWord.tag?" · "+qWord.tag:""}`));
+  if(qWord.ph) x.append(document.createElement("br"),el("span","jp",qWord.ph),el("span",null," — "+qWord.phvn));
+  if(qWord.easy) x.append(document.createElement("br"),el("span","jp","既習の読み："+qWord.easy));
+  if(qWord.note) x.append(document.createElement("br"),el("span","jp","※ "+qWord.note));
+  x.hidden=false;
+  $("qNext").hidden=false; $("qNext").focus();
+}
+$("qNext").onclick=newQuestion;
+
+/* List */
+function renderList(){
+  const s=$("search").value.trim().toLowerCase();
+  const items=WORDS.filter(inScope).filter(w=>!s||[w.w,w.r,w.k,w.ph,w.easy,w.hv.toLowerCase(),w.vn.toLowerCase(),w.phvn.toLowerCase()].some(f=>f.includes(s))).filter(w=>!onlyLearn||!known.has(w.id));
+  const box=$("list"); box.innerHTML="";
+  if(!items.length){box.innerHTML='<div class="list"><div class="empty">Không có từ nào khớp. Thử từ khác nhé.</div></div>';return;}
+  GROUPS.forEach(g=>{
+    const its=items.filter(w=>w.g===g); if(!its.length) return;
+    const sec=el("div","grp"); const h=el("h2"); h.append(el("b",null,GROUP_KANJI[g]),document.createTextNode("Nhóm "+g));
+    const lst=el("div","list");
+    its.forEach(w=>{
+      const r=el("div","row");
+      const a=el("div","w"); a.append(el("span","jp",w.w),el("span","rd",w.r));
+      const m=el("div","m"); const hv=el("span","hv",w.hv); if(w.tag) hv.append(el("span","tag dv",w.tag)); m.append(hv,el("span","vn",w.vn)); if(w.ph) m.append(el("span","ph",w.ph+" — "+w.phvn));
+      const d=el("span","dot"+(known.has(w.id)?" k":"")); d.title=known.has(w.id)?"Đã thuộc":"Chưa thuộc";
+      r.append(a,m,d); lst.appendChild(r);
+    });
+    sec.append(h,lst); box.appendChild(sec);
+  });
+}
+$("search").oninput=renderList;
+
+/* Switches */
+function renderAll(){
+  document.querySelectorAll("[data-mode]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.mode===mode));
+  document.querySelectorAll("[data-dir]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.dir===dir));
+  document.querySelectorAll("[data-qt]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.qt===qt));
+  $("onlyLearn").setAttribute("aria-pressed",onlyLearn);
+  ["cards","quiz","list"].forEach(m=>$("v-"+m).hidden=m!==mode);
+  if(mode==="cards") renderCard(); else if(mode==="quiz") newQuestion(); else renderList();
+}
+document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{mode=b.dataset.mode;renderAll();});
+document.querySelectorAll("[data-dir]").forEach(b=>b.onclick=()=>{dir=b.dataset.dir;renderAll();});
+document.querySelectorAll("[data-qt]").forEach(b=>b.onclick=()=>{qt=b.dataset.qt;renderAll();});
+$("grpSel").onchange=e=>{grp=e.target.value;idx=0;renderAll();};
+$("onlyLearn").onclick=()=>{onlyLearn=!onlyLearn;idx=0;renderAll();};
+
+document.addEventListener("keydown",e=>{
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(mode==="cards"){
+    if(e.code==="Space"){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight") go(1);
+    else if(e.key==="ArrowLeft") go(-1);
+    else if(e.key==="1") mark(false);
+    else if(e.key==="2") mark(true);
+  } else if(mode==="quiz"){
+    const n=parseInt(e.key,10);
+    if(n>=1&&n<=4&&!answered){const b=$("opts").children[n-1];if(b)pick(b);}
+    else if((e.key==="Enter"||e.code==="Space")&&answered){e.preventDefault();newQuestion();}
+  }
+});
+renderAll();
+</script>
+</body>
+</html>
