@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>N1 Kanji Tuần 3 Ngày 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF1EC; --surface:#FBFCF9; --ink:#1F3A5F; --ink-soft:#5A6B80;
+  --line:#D3DACF; --known:#4F7A35; --known-bg:#E3EDDA; --learn:#8E3B5E; --learn-bg:#F3E2EA;
+  --card-back:#1F3A5F; --card-back-ink:#F4F7FB; --accent:#B5862A;
+  --jp:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+  --vn:"Noto Sans",Roboto,"Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141A22; --surface:#1C2430; --ink:#DCE5F0; --ink-soft:#93A3B6;
+    --line:#2C3746; --known:#9CC77E; --known-bg:#24331C; --learn:#E39BBB; --learn-bg:#3A2230;
+    --card-back:#C9D8EA; --card-back-ink:#14202E; --accent:#E2B860; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141A22; --surface:#1C2430; --ink:#DCE5F0; --ink-soft:#93A3B6;
+  --line:#2C3746; --known:#9CC77E; --known-bg:#24331C; --learn:#E39BBB; --learn-bg:#3A2230;
+  --card-back:#C9D8EA; --card-back-ink:#14202E; --accent:#E2B860; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--vn);line-height:1.5;-webkit-font-smoothing:antialiased;font-size:15px}
+.wrap{max-width:720px;margin:0 auto;padding-block:28px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.eyebrow{font-family:var(--jp);font-size:.8rem;font-weight:500;letter-spacing:.04em;color:var(--accent);margin:0 0 4px}
+h1{font-family:var(--jp);font-weight:700;font-size:clamp(1.4rem,4vw,1.9rem);margin:0;text-wrap:balance}
+h1 small{display:block;font-family:var(--vn);font-weight:500;font-size:.88rem;color:var(--ink-soft);margin-top:2px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--learn);outline-offset:2px}
+
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px}
+.seg button{border:0;background:none;padding:7px 14px;border-radius:999px;font-weight:500;font-size:.9rem;color:var(--ink-soft)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-size:.9rem;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--learn-bg);border-color:var(--learn);color:var(--learn)}
+select.chip{color:var(--ink);font-family:var(--vn);max-width:100%}
+
+/* Flashcard */
+.progress{display:flex;justify-content:space-between;font-size:.86rem;color:var(--ink-soft);margin:4px 2px 8px;font-variant-numeric:tabular-nums}
+.track{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin-bottom:16px}
+.track i{display:block;height:100%;background:var(--ink);transition:width .25s}
+.scene{perspective:1200px}
+.card{position:relative;width:100%;max-width:100%;aspect-ratio:16/10;min-height:320px;border:0;padding:0;background:none;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.3,.7,.3,1)}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:40px 20px 34px;backface-visibility:hidden;-webkit-backface-visibility:hidden;text-align:center}
+.front{background:var(--surface);border:1px solid var(--line);
+  background-image:linear-gradient(var(--line) 1px,transparent 1px);background-size:100% 44px;background-position:0 22px}
+.back{background:var(--card-back);color:var(--card-back-ink);transform:rotateY(180deg)}
+.big{font-size:clamp(2.2rem,9vw,3.6rem);line-height:1.25;padding:0 10px;word-break:break-word}
+.front .big,.front .phr{background:var(--surface)}
+.front .big.vn{font-size:clamp(1.3rem,5vw,2rem);max-width:30ch}
+.phr{font-family:var(--jp);font-weight:500;font-size:clamp(1rem,3.6vw,1.25rem);padding:2px 10px;color:var(--ink-soft)}
+.phr u{text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:4px;color:var(--ink)}
+.jp{font-family:var(--jp);font-weight:500}
+.vn{font-family:var(--vn);font-weight:600}
+.b-read{font-family:var(--jp);font-weight:500;font-size:clamp(1.5rem,6vw,2.3rem);line-height:1.25}
+.b-word{font-family:var(--jp);font-weight:500;font-size:clamp(2rem,8vw,3rem);line-height:1.25}
+.b-hv{font-size:.88rem;font-weight:700;letter-spacing:.08em;opacity:.78}
+.b-vn{font-size:clamp(1.05rem,3.6vw,1.3rem);font-weight:600;max-width:32ch}
+.b-phr{font-size:.92rem;opacity:.9;max-width:40ch}
+.b-phr .jp{font-weight:500}
+.b-easy{font-size:.8rem;opacity:.75;max-width:44ch;font-family:var(--jp)}
+.b-easy b{font-weight:700;margin-right:4px}
+.face .sub{position:absolute;bottom:12px;left:16px;right:16px;font-size:.82rem;opacity:.72}
+.focus{position:absolute;top:14px;left:16px;font-size:.82rem;font-weight:500;color:var(--ink-soft);font-family:var(--jp)}
+.back .focus{color:var(--card-back-ink);opacity:.7}
+.tag{position:absolute;top:14px;right:16px;font-size:.76rem;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--known-bg);color:var(--known)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px}
+.round{width:52px;height:52px;flex:none;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:1.3rem;display:grid;place-items:center}
+.marks{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.mk{border-radius:12px;padding:11px 16px;font-weight:600;font-size:.9rem;border:1.5px solid}
+.mk.learn{border-color:var(--learn);color:var(--learn);background:var(--learn-bg)}
+.mk.known{border-color:var(--known);color:var(--known);background:var(--known-bg)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:18px}
+.link{border:0;background:none;color:var(--ink-soft);font-size:.86rem;text-decoration:underline;text-underline-offset:3px;padding:6px 8px}
+.link.danger{color:var(--learn);font-weight:600}
+.hint{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:6px}
+
+/* Quiz */
+.q-type{margin-bottom:12px}
+.q-prompt{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px 20px;text-align:center;margin-bottom:14px}
+.q-ask{font-size:.84rem;color:var(--ink-soft);margin:0 0 6px}
+.q-ask .jp{font-size:1rem;color:var(--ink)}
+.q-prompt .big{font-size:clamp(1.8rem,7vw,2.6rem);display:block}
+.q-prompt .big.vn{font-size:clamp(1.3rem,5vw,1.9rem)}
+.q-prompt .big u{text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:6px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:480px){.opts{grid-template-columns:1fr}}
+.opt{border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:14px;text-align:left;font-size:1.05rem;min-height:56px;display:flex;gap:10px;align-items:center;min-width:0}
+.opt span{min-width:0;word-break:break-word}
+.opt kbd{font-family:var(--vn);font-size:.74rem;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--ink-soft)}
+.opt.right{border-color:var(--known);background:var(--known-bg);color:var(--known)}
+.opt.wrong{border-color:var(--learn);background:var(--learn-bg);color:var(--learn)}
+.q-explain{margin-top:12px;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px dashed var(--line);font-size:.92rem}
+.q-explain .jp{font-size:1.1rem}
+.q-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:.9rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.primary{background:var(--ink);color:var(--paper);border:0;border-radius:12px;padding:11px 20px;font-weight:600}
+
+/* List */
+.search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;margin-bottom:12px}
+.grp{margin-bottom:14px}
+.grp h2{font-family:var(--jp);font-size:.95rem;margin:0 0 6px 4px;color:var(--ink-soft);font-weight:500}
+.grp h2 b{color:var(--accent);font-size:1.15rem;font-weight:700;margin-right:8px;letter-spacing:.12em}
+.list{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr) auto;gap:12px;align-items:center;padding:10px 16px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row .w{display:flex;flex-direction:column;min-width:0}
+.row .w .jp{font-size:1.2rem;line-height:1.35}
+.row .w .rd{font-family:var(--jp);font-size:.85rem;color:var(--ink-soft)}
+.row .m{min-width:0}
+.row .m .hv{font-size:.74rem;font-weight:700;letter-spacing:.06em;color:var(--accent)}
+.row .m .vn{font-weight:400;display:block}
+.row .m .ph{display:block;font-family:var(--jp);font-size:.85rem;color:var(--ink-soft)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.dot.k{background:var(--known)}
+.empty{padding:24px;text-align:center;color:var(--ink-soft)}
+@media (prefers-reduced-motion:reduce){.card,.track i{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <p class="eyebrow">総まとめ N1 漢字 · 第3週 1日目</p>
+      <h1>生かす・生やす<small>2つ以上訓読みがあるもの① · Kanji có nhiều cách đọc Kun · <span id="total"></span> từ</small></h1>
+    </div>
+    <div class="seg" role="group" aria-label="Chế độ">
+      <button data-mode="cards" aria-pressed="true">Thẻ lật</button>
+      <button data-mode="quiz" aria-pressed="false">Trắc nghiệm</button>
+      <button data-mode="list" aria-pressed="false">Danh sách</button>
+    </div>
+  </header>
+
+  <div class="bar">
+    <select class="chip" id="grpSel" aria-label="Chọn nhóm Kanji"></select>
+    <button class="chip" id="onlyLearn" aria-pressed="false">Chỉ từ chưa thuộc</button>
+  </div>
+
+  <!-- Cards -->
+  <section id="v-cards">
+    <div class="bar">
+      <div class="seg" role="group" aria-label="Mặt trước của thẻ">
+        <button data-dir="jv" aria-pressed="true">Kanji → Đọc, nghĩa</button>
+        <button data-dir="vj" aria-pressed="false">Nghĩa → Kanji</button>
+      </div>
+    </div>
+    <div class="progress"><span id="pos"></span><span id="knownCount"></span></div>
+    <div class="track"><i id="bar"></i></div>
+    <div class="scene">
+      <button class="card" id="card" aria-label="Bấm để lật thẻ">
+        <div class="face front"><span class="focus" id="focusF"></span><span class="tag" id="tagF" hidden>Đã thuộc</span><span class="big" id="frontTxt"></span><span class="phr" id="frontPhr"></span><span class="sub">Bấm để lật</span></div>
+        <div class="face back"><span class="focus" id="focusB"></span><span id="backBox" style="display:flex;flex-direction:column;align-items:center;gap:6px"></span></div>
+      </button>
+    </div>
+    <div class="nav">
+      <button class="round" id="prev" aria-label="Thẻ trước">‹</button>
+      <div class="marks">
+        <button class="mk learn" id="mLearn">Chưa thuộc</button>
+        <button class="mk known" id="mKnown">Đã thuộc</button>
+      </div>
+      <button class="round" id="next" aria-label="Thẻ sau">›</button>
+    </div>
+    <div class="tools">
+      <button class="link" id="shuffle">Xáo trộn</button>
+      <button class="link" id="order">Về thứ tự gốc</button>
+      <button class="link" id="reset">Xóa đánh dấu</button>
+      <span id="resetConfirm" hidden><button class="link danger" id="resetYes">Xóa hết</button><button class="link" id="resetNo">Hủy</button></span>
+    </div>
+    <p class="hint">Phím tắt: Space lật thẻ · ← → chuyển thẻ · 1 chưa thuộc · 2 đã thuộc</p>
+  </section>
+
+  <!-- Quiz -->
+  <section id="v-quiz" hidden>
+    <div class="seg q-type" role="group" aria-label="Dạng câu hỏi">
+      <button data-qt="read" aria-pressed="true">Chọn cách đọc</button>
+      <button data-qt="mean" aria-pressed="false">Chọn nghĩa</button>
+      <button data-qt="kanji" aria-pressed="false">Chọn Kanji</button>
+    </div>
+    <div class="q-prompt"><p class="q-ask" id="qAsk"></p><span class="big" id="qTxt"></span></div>
+    <div class="opts" id="opts"></div>
+    <div class="q-explain" id="qExplain" hidden></div>
+    <div class="q-foot"><span id="score">Đúng 0 / 0</span><button class="primary" id="qNext" hidden>Câu tiếp</button></div>
+  </section>
+
+  <!-- List -->
+  <section id="v-list" hidden>
+    <input class="search" id="search" type="search" placeholder="Tìm theo Kanji, cách đọc, Hán Việt hoặc nghĩa">
+    <div id="list"></div>
+  </section>
+</div>
+
+<script>
+/* Nhóm | Kanji | Hán Việt | 既習の読み (sách: やさしい読み) | Từ | Cách đọc | Nghĩa | Cụm (sách) | Nghĩa cụm | Cách đọc nhiễu (cho trắc nghiệm) */
+const RAW = `1|生|SINH|生きる（いきる）・生える（はえる）・生まれる（うまれる）・生む（うむ）・生（なま）|生かす|いかす|phát huy, tận dụng|専門を生かす|phát huy chuyên môn|はやす,うかす,なまかす
+1|生|SINH|生きる（いきる）・生える（はえる）・生まれる（うまれる）・生む（うむ）・生（なま）|生やす|はやす|để (râu, tóc) mọc|ひげを生やす|để râu|いやす,うやす,なまやす
+1|開|KHAI|開く（ひらく）・開ける（あける）・開く（あく）|開ける|ひらける|phát triển, mở mang; (tầm nhìn) mở ra|開けた町|thị trấn đã phát triển|あける,かいける,ひろける
+1|閉|BẾ|閉じる（とじる）・閉める（しめる）・閉まる（しまる）|閉ざす|とざす|đóng chặt, khép (lòng)|心を閉ざす|khép lòng|しざす,とじざす,しめざす
+1|映|ÁNH|映す（うつす）・映る（うつる）|映える|はえる|nổi bật, rực lên (trên nền)|白い服に赤い花が映える|hoa đỏ nổi bật trên áo trắng|うつえる,えいえる,さかえる
+2|教|GIÁO|教える（おしえる）|教わる|おそわる|được dạy, học (từ ai)|専門家に教わる|học từ chuyên gia|おしわる,きょうわる,おさわる
+2|試|THÍ|試す（ためす）|試みる|こころみる|thử, thử làm|実験を試みる|thử làm thí nghiệm|ためみる,しみる,ためしみる
+2|新|TÂN|新しい（あたらしい）|新た|あらた|mới|新たな挑戦|thử thách mới|あたらた,にいた,しんた
+2|強|CƯỜNG|強い（つよい）|強いる|しいる|ép buộc|超過勤務を強いる|ép làm thêm giờ|つよいる,きょういる,こわいる
+2|好|HẢO|好き（すき）|好む|このむ|thích, ưa chuộng|女性の好む店|quán được phụ nữ ưa thích|すむ,こうむ,よしむ
+2|重|TRỌNG|重い（おもい）・重ねる（かさねる）|重なる|かさなる|chồng chất; trùng nhau|不幸が重なる|bất hạnh chồng chất|おもなる,じゅうなる,かせなる
+3|外|NGOẠI|外（そと）・外れる（はずれる）|外す|はずす|tháo, cởi; rời (chỗ)|ボタンを外す／席を外す|cởi cúc áo ／ rời khỏi chỗ|そとす,ほかす,がいす
+3|後|HẬU|後で（あとで）・後ろ（うしろ）|後|のち|sau, sau đó (trang trọng)|後ほどご連絡いたします。|Tôi sẽ liên lạc lại sau ạ.|あと,うしろ,ご
+3|冷|LÃNH|冷める（さめる）・冷たい（つめたい）・冷やす（ひやす）・冷やかす（ひやかす）|冷える|ひえる|lạnh đi, được ướp lạnh|ビールが冷える|bia được ướp lạnh|さえる,つめえる,れいえる
+3|冷|LÃNH|冷める（さめる）・冷たい（つめたい）・冷やす（ひやす）・冷やかす（ひやかす）|冷ます|さます|làm nguội|お湯を冷ます|làm nguội nước nóng|さめます,ひます,つめます
+4|汚|Ô|汚い（きたない）・汚れる（よごれる）|汚す|よごす|làm bẩn|服を汚す|làm bẩn quần áo|けがす,きたなす,おす
+4|汚|Ô|汚い（きたない）・汚れる（よごれる）|汚す|けがす|bôi nhọ, làm ô danh|名を汚す|làm ô danh|よごす,きたなす,おす
+4|逃|ĐÀO|逃げる（にげる）・逃れる（のがれる）|逃がす|にがす|thả, để (con vật, người) thoát|魚を逃がす|thả cá / để cá thoát|のがす,とうがす,にげす
+4|逃|ĐÀO|逃げる（にげる）・逃れる（のがれる）|逃す|のがす|bỏ lỡ (cơ hội)|機会を逃す|bỏ lỡ cơ hội|にがす,ながす,とうす
+4|抱|BÃO|抱く（だく）|抱く|いだく|ôm ấp (hy vọng, ước mơ)|希望を抱く|ôm ấp hy vọng|だく,かかく,ほうく
+4|抱|BÃO|抱く（だく）|抱える|かかえる|ôm, cắp (đồ); gánh (vấn đề)|荷物を抱える|ôm hành lý|だえる,いだえる,かかわる
+5|危|NGUY|危ない（あぶない）|危うい|あやうい|nguy hiểm; suýt nữa|危ういところを助かった。|thoát hiểm trong gang tấc|あぶうい,きうい,あやしい
+5|危|NGUY|危ない（あぶない）|危ぶむ|あやぶむ|lo ngại, nghi ngại|企業の再建を危ぶむ|lo ngại việc tái thiết doanh nghiệp|あぶぶむ,きぶむ,あやうむ
+5|触|XÚC|触る（さわる）|触れる|ふれる|chạm vào; đề cập|手を触れないでください。|Xin đừng chạm tay vào.|ぶれる,しょくれる,ふるえる
+5|凍|ĐỐNG|凍る（こおる）|凍える|こごえる|lạnh cóng (người, tay chân)|人が凍える|người lạnh cóng|こおえる,とうえる,ここえる
+5|頼|LẠI|頼む（たのむ）|頼る|たよる|dựa vào, nhờ cậy|友人を頼る|nhờ cậy bạn bè|たのる,らいる,よる
+5|頼|LẠI|頼む（たのむ）|頼もしい|たのもしい|đáng tin cậy|頼もしい人|người đáng tin cậy|たよもしい,らいもしい,たのましい
+5|連|LIÊN|連れる（つれる）|連なる|つらなる|nối dài, trải dài thành dãy|山々が連なる|núi non trùng điệp|つれなる,れんなる,つながる`;
+
+const WORDS = RAW.trim().split("\n").map((l,i)=>{
+  const [g,k,hv,easy,w,r,vn,ph,phvn,dis]=l.split("|").map(s=>s.trim());
+  return {id:i,g,k,hv,easy,w,r,vn,ph,phvn,dis:dis.split(",")};
+});
+const GROUPS=[...new Set(WORDS.map(w=>w.g))];
+const GROUP_KANJI=Object.fromEntries(GROUPS.map(g=>[g,[...new Set(WORDS.filter(w=>w.g===g).map(w=>w.k))].join(" ")]));
+const KEY="kyowa-n1-kanji-w3d1-known";
+let known=new Set();
+try{known=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify([...known]))}catch(e){}};
+
+let mode="cards", dir="jv", qt="read", grp="all", onlyLearn=false, order=WORDS.map(w=>w.id), idx=0;
+const $=id=>document.getElementById(id);
+$("total").textContent=WORDS.length;
+$("grpSel").innerHTML='<option value="all">Tất cả nhóm</option>'+GROUPS.map(g=>`<option value="${g}">Nhóm ${g} · ${GROUP_KANJI[g]}</option>`).join("");
+
+const inScope=w=>(grp==="all"||w.g===grp);
+const deck=()=>order.map(i=>WORDS[i]).filter(inScope).filter(w=>!onlyLearn||!known.has(w.id));
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;};
+/* Gạch chân chữ Kanji trọng tâm + okurigana trong cụm (vd: 名を<u>汚す</u>) */
+function phraseNode(w,cls){
+  const s=el("span",cls); const re=new RegExp(w.k+"[ぁ-ん]*");
+  w.ph.split("／").forEach((part,i)=>{
+    if(i) s.append(document.createTextNode("／"));
+    const m=part.match(re);
+    if(!m){s.append(document.createTextNode(part));return;}
+    s.append(document.createTextNode(part.slice(0,m.index)),el("u",null,m[0]),document.createTextNode(part.slice(m.index+m[0].length)));
+  });
+  return s;
+}
+
+/* Cards */
+function renderCard(){
+  const d=deck(), card=$("card"), box=$("backBox");
+  card.classList.remove("flipped");
+  $("knownCount").textContent=`Đã thuộc ${known.size}/${WORDS.length}`;
+  if(!d.length){
+    $("frontTxt").className="big vn";$("frontTxt").textContent="Thuộc hết rồi!";$("frontPhr").textContent="";
+    box.innerHTML="";$("focusF").textContent="";$("focusB").textContent="";
+    $("pos").textContent="0 / 0";$("bar").style.width="100%";$("tagF").hidden=true;return;
+  }
+  if(idx>=d.length) idx=d.length-1; if(idx<0) idx=0;
+  const w=d[idx];
+  const focus=`${w.k} · ${w.hv}`;
+  $("focusF").textContent=dir==="jv"?focus:"";
+  $("focusB").textContent=focus;
+  const fp=$("frontPhr"); fp.innerHTML="";
+  if(dir==="jv"){$("frontTxt").className="big jp";$("frontTxt").textContent=w.w;fp.append(phraseNode(w));}
+  else{$("frontTxt").className="big vn";$("frontTxt").textContent=w.vn;}
+  box.innerHTML="";
+  const phr=el("span","b-phr"); phr.append(el("span","jp",w.ph),document.createTextNode(" — "+w.phvn));
+  const easy=el("span","b-easy"); easy.append(el("b",null,"既習の読み"),document.createTextNode(w.easy));
+  if(dir==="jv"){box.append(el("span","b-read",w.r),el("span","b-hv",w.hv),el("span","b-vn",w.vn),phr,easy);}
+  else{box.append(el("span","b-word",w.w),el("span","b-read",w.r),phr,easy);}
+  $("tagF").hidden=!known.has(w.id);
+  $("pos").textContent=`${idx+1} / ${d.length}`;
+  $("bar").style.width=((idx+1)/d.length*100)+"%";
+}
+const flip=()=>{if(deck().length)$("card").classList.toggle("flipped")};
+const go=s=>{const n=deck().length;if(!n)return;
+  const c=$("card"); if(c.classList.contains("flipped")){c.classList.remove("flipped");setTimeout(()=>{idx=(idx+s+n)%n;renderCard();},220);}
+  else{idx=(idx+s+n)%n;renderCard();}};
+function mark(isKnown){
+  const d=deck(); if(!d.length) return; const w=d[idx];
+  isKnown?known.add(w.id):known.delete(w.id); save();
+  if(onlyLearn && isKnown){renderCard();} else go(1);
+}
+$("card").onclick=flip; $("prev").onclick=()=>go(-1); $("next").onclick=()=>go(1);
+$("mKnown").onclick=()=>mark(true); $("mLearn").onclick=()=>mark(false);
+$("shuffle").onclick=()=>{order=shuffle(order);idx=0;renderCard();};
+$("order").onclick=()=>{order=WORDS.map(w=>w.id);idx=0;renderCard();};
+$("reset").onclick=()=>{$("reset").hidden=true;$("resetConfirm").hidden=false;};
+$("resetNo").onclick=()=>{$("reset").hidden=false;$("resetConfirm").hidden=true;};
+$("resetYes").onclick=()=>{known.clear();save();$("reset").hidden=false;$("resetConfirm").hidden=true;renderAll();};
+
+/* Quiz
+   - Chọn cách đọc: đề là cụm sách (gạch chân từ), nhiễu = cách đọc dễ nhầm soạn riêng cho từng từ
+   - Chọn nghĩa / Chọn Kanji: nhiễu ưu tiên cùng nhóm */
+const QT={
+  read:{ask:w=>["Cách đọc của「",w.w,"」trong cụm này là?"],p:w=>({node:phraseNode(w),c:"jp"}),a:w=>({t:w.r,c:"jp"})},
+  mean:{ask:w=>["Nghĩa của「",w.w,"」trong cụm này là?"],p:w=>({node:phraseNode(w),c:"jp"}),a:w=>({t:w.vn,c:"vn"})},
+  kanji:{ask:()=>["Từ Kanji đúng là?"],p:w=>({t:w.vn,c:"vn"}),a:w=>({t:w.w,c:"jp"})}
+};
+let qWord=null, answered=false, right=0, total=0;
+function newQuestion(){
+  const t=QT[qt];
+  const pool=deck().length?deck():WORDS.filter(inScope);
+  qWord=pool[Math.floor(Math.random()*pool.length)];
+  const correct=t.a(qWord).t;
+  let opts;
+  if(qt==="read"){
+    opts=shuffle([{ok:true,t:correct},...qWord.dis.filter(x=>x!==correct).slice(0,3).map(x=>({ok:false,t:x}))]).map(o=>({...o,c:"jp"}));
+  }else{
+    const seen=new Set([correct]);
+    const cand=[...shuffle(WORDS.filter(w=>w.g===qWord.g&&w.id!==qWord.id)),...shuffle(WORDS.filter(w=>w.g!==qWord.g))];
+    const others=[];
+    for(const w of cand){const v=t.a(w).t; if(!seen.has(v)){seen.add(v);others.push({ok:false,t:v,c:t.a(w).c});} if(others.length===3)break;}
+    opts=shuffle([{ok:true,t:correct,c:t.a(qWord).c},...others]);
+  }
+  const ask=$("qAsk"); ask.innerHTML="";
+  const parts=t.ask(qWord); parts.forEach((p,i)=>ask.append(i===1?el("span","jp",p):document.createTextNode(p)));
+  const p=t.p(qWord), q=$("qTxt"); q.className="big "+p.c; q.innerHTML="";
+  if(p.node){p.node.className="";q.append(p.node);} else q.textContent=p.t;
+  $("opts").innerHTML="";
+  opts.forEach((o,i)=>{
+    const b=el("button","opt"); b.dataset.ok=o.ok;
+    b.append(el("kbd",null,String(i+1)),el("span",o.c,o.t));
+    b.onclick=()=>pick(b); $("opts").appendChild(b);
+  });
+  answered=false; $("qNext").hidden=true; $("qExplain").hidden=true;
+}
+function pick(btn){
+  if(answered) return; answered=true; total++;
+  const ok=btn.dataset.ok==="true"; if(ok) right++;
+  [...$("opts").children].forEach(b=>{if(b.dataset.ok==="true")b.classList.add("right");});
+  if(!ok) btn.classList.add("wrong");
+  $("score").textContent=`Đúng ${right} / ${total}`;
+  const x=$("qExplain"); x.innerHTML="";
+  x.append(el("span","jp",qWord.w+"　"),el("span","jp",qWord.r),document.createElement("br"),
+    el("span",null,`${qWord.hv} · ${qWord.vn}`),document.createElement("br"),
+    el("span","jp",qWord.ph),el("span",null," — "+qWord.phvn),document.createElement("br"),
+    el("span","jp","既習の読み："+qWord.easy));
+  x.hidden=false;
+  $("qNext").hidden=false; $("qNext").focus();
+}
+$("qNext").onclick=newQuestion;
+
+/* List */
+function renderList(){
+  const s=$("search").value.trim().toLowerCase();
+  const items=WORDS.filter(inScope).filter(w=>!s||[w.w,w.r,w.k,w.ph,w.easy,w.hv.toLowerCase(),w.vn.toLowerCase(),w.phvn.toLowerCase()].some(f=>f.includes(s))).filter(w=>!onlyLearn||!known.has(w.id));
+  const box=$("list"); box.innerHTML="";
+  if(!items.length){box.innerHTML='<div class="list"><div class="empty">Không có từ nào khớp. Thử từ khác nhé.</div></div>';return;}
+  GROUPS.forEach(g=>{
+    const its=items.filter(w=>w.g===g); if(!its.length) return;
+    const sec=el("div","grp"); const h=el("h2"); h.append(el("b",null,GROUP_KANJI[g]),document.createTextNode("Nhóm "+g));
+    const lst=el("div","list");
+    its.forEach(w=>{
+      const r=el("div","row");
+      const a=el("div","w"); a.append(el("span","jp",w.w),el("span","rd",w.r));
+      const m=el("div","m"); m.append(el("span","hv",w.hv),el("span","vn",w.vn),el("span","ph",w.ph+" — "+w.phvn));
+      const d=el("span","dot"+(known.has(w.id)?" k":"")); d.title=known.has(w.id)?"Đã thuộc":"Chưa thuộc";
+      r.append(a,m,d); lst.appendChild(r);
+    });
+    sec.append(h,lst); box.appendChild(sec);
+  });
+}
+$("search").oninput=renderList;
+
+/* Switches */
+function renderAll(){
+  document.querySelectorAll("[data-mode]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.mode===mode));
+  document.querySelectorAll("[data-dir]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.dir===dir));
+  document.querySelectorAll("[data-qt]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.qt===qt));
+  $("onlyLearn").setAttribute("aria-pressed",onlyLearn);
+  ["cards","quiz","list"].forEach(m=>$("v-"+m).hidden=m!==mode);
+  if(mode==="cards") renderCard(); else if(mode==="quiz") newQuestion(); else renderList();
+}
+document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{mode=b.dataset.mode;renderAll();});
+document.querySelectorAll("[data-dir]").forEach(b=>b.onclick=()=>{dir=b.dataset.dir;renderAll();});
+document.querySelectorAll("[data-qt]").forEach(b=>b.onclick=()=>{qt=b.dataset.qt;renderAll();});
+$("grpSel").onchange=e=>{grp=e.target.value;idx=0;renderAll();};
+$("onlyLearn").onclick=()=>{onlyLearn=!onlyLearn;idx=0;renderAll();};
+
+document.addEventListener("keydown",e=>{
+  if(e.target.tagName==="INPUT"||e.target.tagName==="SELECT") return;
+  if(mode==="cards"){
+    if(e.code==="Space"){e.preventDefault();flip();}
+    else if(e.key==="ArrowRight") go(1);
+    else if(e.key==="ArrowLeft") go(-1);
+    else if(e.key==="1") mark(false);
+    else if(e.key==="2") mark(true);
+  } else if(mode==="quiz"){
+    const n=parseInt(e.key,10);
+    if(n>=1&&n<=4&&!answered){const b=$("opts").children[n-1];if(b)pick(b);}
+    else if((e.key==="Enter"||e.code==="Space")&&answered){e.preventDefault();newQuestion();}
+  }
+});
+renderAll();
+</script>
+</body>
+</html>
